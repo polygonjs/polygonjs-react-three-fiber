@@ -1,9 +1,8 @@
-import {PolyScene} from '@polygonjs/polygonjs/dist/src/engine/scene/PolyScene';
-import {BaseViewerType} from '@polygonjs/polygonjs/dist/src/engine/viewers/_Base';
+import type {PolyScene} from '@polygonjs/polygonjs/dist/src/engine/scene/PolyScene';
+import type {BaseViewerType} from '@polygonjs/polygonjs/dist/src/engine/viewers/_Base';
+import type {BaseParamType} from '@polygonjs/polygonjs/dist/src/engine/params/_Base';
 import React, {useEffect, useRef} from 'react';
 import {suspend} from 'suspend-react';
-import {BaseParamType} from '@polygonjs/polygonjs/dist/src/engine/params/_Base';
-import {Vector2Param} from '@polygonjs/polygonjs/dist/src/engine/params/Vector2';
 import {useThree} from '@react-three/fiber';
 import {WebGLRenderer} from 'three';
 
@@ -93,11 +92,9 @@ function findParam(propName: string, scene: PolyScene, sceneParamsMap: Map<strin
 		param = node.params.get(paramName);
 	} else {
 		const parentParam = node.params.get(paramElements[0]);
-		const componentName = paramElements[1];
-		if (parentParam instanceof Vector2Param) {
-			if (componentName === 'x' || componentName === 'y') {
-				param = parentParam[componentName];
-			}
+		if (parentParam) {
+			const componentName = paramElements[1];
+			param = parentParam.components?.find((component) => component.name() == componentName) || null;
 		}
 	}
 	if (!param) {

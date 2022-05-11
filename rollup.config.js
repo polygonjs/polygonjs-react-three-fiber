@@ -21,16 +21,16 @@ export default [
 			},
 		],
 		plugins: [resolve(), commonjs(), typescript({tsconfig: './tsconfig.json'})],
-	},
-	{
-		input: 'dist/esm/types/index.d.ts',
-		output: [{file: 'dist/index.d.ts', format: 'esm'}],
 		//
 		// in order to avoid the error
 		// "Unhandled Runtime Error Error: Invalid hook call. Hooks can only be called inside of the body of a function component"
 		// we set react as external.
 		// see https://dev.to/alexeagleson/how-to-create-and-publish-a-react-component-library-2oe
-		external: ['react', '@react-three/drei', '@react-three/fiber', '@polygonjs/polygonjs'],
+		external: ['three', 'react', '@react-three/drei', '@react-three/fiber', '@polygonjs/polygonjs'],
+	},
+	{
+		input: 'dist/esm/types/index.d.ts',
+		output: [{file: 'dist/index.d.ts', format: 'esm'}],
 		plugins: [dts()],
 	},
 ];
