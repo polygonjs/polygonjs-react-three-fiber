@@ -3,7 +3,7 @@ import type {BaseViewerType} from '@polygonjs/polygonjs/dist/src/engine/viewers/
 import type {BaseParamType} from '@polygonjs/polygonjs/dist/src/engine/params/_Base';
 import React, {useEffect, useRef} from 'react';
 import {suspend} from 'suspend-react';
-import {useThree} from '@react-three/fiber';
+import {useFrame, useThree} from '@react-three/fiber';
 import {WebGLRenderer} from 'three';
 
 interface LoadSceneOptions {
@@ -45,6 +45,10 @@ export const PolygonjsScene = <S extends PolyScene, P extends {}>(props: Polygon
 
 	useEffect(() => {
 		group.current.add(scene.threejsScene());
+	});
+	useFrame((state) => {
+		scene.incrementTimeIfPlaying();
+		(scene as any).setRaycaster(state.raycaster);
 	});
 
 	const propNames = Object.keys(props).filter((propName) => {
@@ -98,7 +102,7 @@ function findParam(propName: string, scene: PolyScene, sceneParamsMap: Map<strin
 		}
 	}
 	if (!param) {
-		console.warn(`node '${nodePath}' has no param '${param}'`);
+		console.warn(`node '${nodePath}' has no param '${paramName}'`);
 		return;
 	}
 
