@@ -1,9 +1,9 @@
 <p align="center">
-<img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/logos.png?raw=true" alt="React + Polygonjs"></img>
+<img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react_three_fiber/logos.png?raw=true" alt="React + Polygonjs"></img>
 </p>
 
 <p align="center">
-<a href="https://polygonjs.com/react">Live Demo</a> |
+<a href="https://polygonjs.com/react_three_fiber">Live Demo</a> |
 <a href="https://polygonjs.com">Polygonjs</a> |
 <a href="https://polygonjs.com/forum">Forum</a> |
 <a href="https://polygonjs.com/discord">Discord</a>
@@ -18,11 +18,7 @@ Polygonjs allows you to create complex and procedural scenes with a visual edito
 <table style="margin:0px;padding:0px">
 	<tr style="margin:0px;padding:0px">
 		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_01.gif?raw=true"></img></td>
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_02.gif?raw=true"></img></td>
-	</tr>
-	<tr style="margin:0px;padding:0px">
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/scene_03.gif?raw=true"></img></td>
-		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/react_example.gif?raw=true"></img></td>
+		<td style="margin:0px;padding:0px"><img src="https://github.com/polygonjs/polygonjs-assets/blob/master/tutorials/react/react_three_fiber_example.gif?raw=true"></img></td>
 	</tr>
 </table>
 
@@ -69,5 +65,27 @@ render (
 )
 ;
 ```
+
+# Access the Polygonjs scene
+
+You can update **any node** of the Polygonjs scene by passing props the `<PolygonjsScene/>` component.
+
+The name of the prop must match the path of the parameter, which you can get by right-clicking on the parameter label.
+
+And the path is `path-to-node--paramname`. So you should replace the forward slashes (`/`) by a dash (`-`), and have 2 dashes (`--`) separating the node path and the param name.
+
+So the param `/geo1/text1/text` (meaning the param `test` of the node `text1` which itself is inside the node `geo1`) is accessed by the prop `geo1-text1--text`.
+
+In JSX, you can therefore set it like this:
+
+```
+<PolygonjsScene
+	sceneName={"scene_01"}
+	loadFunction={loadSceneAsync_scene_01}
+	geo1-text1--text={'my new string'}
+/>;
+```
+
+And you can also access parameter components (for vector or color parameters) by adding the name of the component. For instance, the x component of the translate param is accessed via `geo1--t-x`.
 
 
