@@ -28,8 +28,8 @@
 	"license": "ISC",
 	"dependencies": {
 		"@polygonjs/polygonjs": "^1.2.21",
-		"@react-three/drei": "^9.7.1",
-		"@react-three/fiber": "^8.0.14",
+		"@react-three/drei": "^9.31.1",
+		"@react-three/fiber": "^8.7.4",
 		"react": "^18.1.0"
 	},
 	"peerDependencies": {},
