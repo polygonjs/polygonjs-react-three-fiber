@@ -47,8 +47,8 @@ export const PolygonjsScene = <S extends PolyScene, P extends {}>(props: Polygon
 		group.current.add(scene.threejsScene());
 	});
 	useFrame((state, delta) => {
-		scene.update(delta);
-		(scene as any).setRaycaster(state.raycaster);
+		scene.update(delta, state);
+		scene.setRaycaster(state.raycaster);
 	});
 
 	const propNames = Object.keys(props).filter((propName) => {

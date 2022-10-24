@@ -67,10 +67,10 @@
   resolved "https://registry.npmjs.org/@jscad/modeling/-/modeling-2.9.3.tgz"
   integrity sha512-UnSKU1OAl5g93sh84VnDxF/EMGsUBIZuhD1PjkCh3Gxaut3p+39GTTF5MHYhGFEfvQKbhXQHVbtoE+mdohQuxg==
 
-"@polygonjs/polygonjs@1.2.42":
-  version "1.2.42"
-  resolved "https://registry.npmjs.org/@polygonjs/polygonjs/-/polygonjs-1.2.42.tgz"
-  integrity sha512-ma8xGng0rjImPYvYqGXoi01HquNlGDniRlVEYfLqlMLWGufYDmQTRn0+RfDFPUpLWgKrX7oWn89KKXbdI5ECDQ==
+"@polygonjs/polygonjs@1.2.44":
+  version "1.2.44"
+  resolved "https://registry.yarnpkg.com/@polygonjs/polygonjs/-/polygonjs-1.2.44.tgz#01cf6468f7b439a9473238b57c5e8b37a4e8b547"
+  integrity sha512-L0NWA8la4CcX+QszExQ5L83zqfBtCjbeEnjzOjmgSXF8OW+CPLID1fLdkofrexloWWGeZHoAFuNfkUE5d7e48A==
   dependencies:
     "@dimforge/rapier3d" "0.9.0"
     "@jscad/modeling" "2.9.3"

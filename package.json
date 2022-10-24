@@ -1,6 +1,6 @@
 {
 	"name": "@polygonjs/react-three-fiber",
-	"version": "1.2.42",
+	"version": "1.2.44",
 	"description": "React Three Fiber component for the node-based WebGL Polygonjs design tool",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
@@ -27,7 +27,7 @@
 	"author": "@polygonjs",
 	"license": "ISC",
 	"dependencies": {
-		"@polygonjs/polygonjs": "1.2.42",
+		"@polygonjs/polygonjs": "1.2.44",
 		"@react-three/drei": "^9.31.1",
 		"@react-three/fiber": "^8.7.4",
 		"react": "^18.1.0"
