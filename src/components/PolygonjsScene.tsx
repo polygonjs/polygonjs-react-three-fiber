@@ -46,8 +46,8 @@ export const PolygonjsScene = <S extends PolyScene, P extends {}>(props: Polygon
 	useEffect(() => {
 		group.current.add(scene.threejsScene());
 	});
-	useFrame((state) => {
-		scene.incrementTimeIfPlaying();
+	useFrame((state, delta) => {
+		scene.update(delta);
 		(scene as any).setRaycaster(state.raycaster);
 	});
 
