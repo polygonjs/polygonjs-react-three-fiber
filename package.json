@@ -1,7 +1,7 @@
 {
 	"name": "@polygonjs/react-three-fiber",
 	"version": "1.2.89",
-	"description": "React Three Fiber component for the node-based WebGL Polygonjs design tool",
+	"description": "React Three Fiber component for Polygonjs, the WebGL design & animation tool",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"files": [
@@ -27,16 +27,16 @@
 	"author": "@polygonjs",
 	"license": "ISC",
 	"dependencies": {
-		"@polygonjs/polygonjs": "1.2.89",
-		"@react-three/fiber": "^8.10.1",
-		"react": "^18.1.0"
+		"@polygonjs/polygonjs": "^1.4.2",
+		"@react-three/fiber": "^8.11.10",
+		"react": "^18.2.0"
 	},
 	"peerDependencies": {},
 	"devDependencies": {
 		"@rollup/plugin-commonjs": "^22.0.0",
 		"@rollup/plugin-node-resolve": "^13.3.0",
 		"@rollup/plugin-typescript": "^8.3.2",
-		"@types/react": "^18.0.8",
+		"@types/react": "^18.0.28",
 		"rollup": "^2.71.1",
 		"rollup-plugin-dts": "^4.2.1",
 		"tslib": "^2.4.0",
