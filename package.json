@@ -1,6 +1,6 @@
 {
 	"name": "@polygonjs/react-three-fiber",
-	"version": "1.4.23",
+	"version": "1.5.27",
 	"description": "React Three Fiber component for Polygonjs, the WebGL design & animation tool",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
