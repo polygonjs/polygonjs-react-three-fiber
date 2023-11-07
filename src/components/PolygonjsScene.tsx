@@ -11,6 +11,7 @@ interface LoadSceneOptions {
 	// domElement?: HTMLElement;
 	// printWarnings?: boolean;
 	renderer: WebGLRenderer;
+	baseUrl?: string;
 }
 interface LoadedData<S extends PolyScene> {
 	scene: S;
@@ -21,6 +22,7 @@ type LoadScene<S extends PolyScene> = (options: LoadSceneOptions) => Promise<Loa
 type PolygonjsSceneProps<S extends PolyScene, P extends {}> = P & {
 	sceneName: string;
 	loadFunction: LoadScene<S>;
+	baseUrl?: string;
 };
 
 const sceneParamsByScene: Map<PolyScene, Map<string, BaseParamType>> = new Map();
@@ -28,10 +30,11 @@ const sceneParamsByScene: Map<PolyScene, Map<string, BaseParamType>> = new Map()
 function usePolygonjsLoadScene(
 	loadingFunc: LoadScene<PolyScene>,
 	sceneName: string,
-	renderer: WebGLRenderer
+	renderer: WebGLRenderer,
+	baseUrl?: string
 ): PolyScene {
 	const results = suspend(() => {
-		return loadingFunc({renderer});
+		return loadingFunc({renderer, baseUrl});
 	}, [sceneName]);
 	return results.scene;
 }
@@ -39,7 +42,7 @@ function usePolygonjsLoadScene(
 export const PolygonjsScene = <S extends PolyScene, P extends {}>(props: PolygonjsSceneProps<S, P>) => {
 	const {gl} = useThree();
 	const group = useRef<THREE.Group>(null!);
-	const scene = usePolygonjsLoadScene(props.loadFunction, props.sceneName, gl);
+	const scene = usePolygonjsLoadScene(props.loadFunction, props.sceneName, gl, props.baseUrl);
 	// it is required to have the renderer for cop/imageEXR and sop/particlesSystemGPU
 	scene.renderersRegister.registerRenderer(gl);
 
